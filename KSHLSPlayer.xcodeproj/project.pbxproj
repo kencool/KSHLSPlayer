@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE005C5F1C4E14BD00E4FFF5 /* KSEventStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE005C5E1C4E14BD00E4FFF5 /* KSEventStorage.swift */; };
+		BE005C611C4E3C2500E4FFF5 /* KSStreamProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE005C601C4E3C2500E4FFF5 /* KSStreamProvider.swift */; };
+		BE18E7851C4CBE9D00BB74C7 /* SyncFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7841C4CBE9D00BB74C7 /* SyncFunc.swift */; };
+		BE18E7871C4CE1CE00BB74C7 /* KSLiveProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7861C4CE1CE00BB74C7 /* KSLiveProvider.swift */; };
+		BE18E7891C4CF67A00BB74C7 /* KSEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7881C4CF67A00BB74C7 /* KSEventProvider.swift */; };
+		BE18EF371C457D3600007106 /* KSLiveReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18EF361C457D3600007106 /* KSLiveReceiver.swift */; };
+		BE18EF391C457D4400007106 /* KSEventReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18EF381C457D4400007106 /* KSEventReceiver.swift */; };
 		BEEB05D41C43F3DB00379DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB05D31C43F3DB00379DA4 /* AppDelegate.swift */; };
 		BEEB05D61C43F3DB00379DA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB05D51C43F3DB00379DA4 /* ViewController.swift */; };
 		BEEB05D91C43F3DB00379DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEB05D71C43F3DB00379DA4 /* Main.storyboard */; };
@@ -14,6 +21,11 @@
 		BEEB05DE1C43F3DB00379DA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEB05DC1C43F3DB00379DA4 /* LaunchScreen.storyboard */; };
 		BEEB05E91C43F3DB00379DA4 /* KSHLSPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB05E81C43F3DB00379DA4 /* KSHLSPlayerTests.swift */; };
 		BEEB05F41C43F3DC00379DA4 /* KSHLSPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB05F31C43F3DC00379DA4 /* KSHLSPlayerUITests.swift */; };
+		BEEB06021C43F40700379DA4 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = BEEB06011C43F40700379DA4 /* Cartfile */; };
+		BEEB06041C43F4D900379DA4 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB06031C43F4D900379DA4 /* Swifter.framework */; };
+		BEEB060F1C43F6BB00379DA4 /* HLSPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB060E1C43F6BB00379DA4 /* HLSPlaylist.swift */; };
+		BEEB06111C440F1300379DA4 /* TSSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB06101C440F1300379DA4 /* TSSegment.swift */; };
+		BEEB06151C4422BF00379DA4 /* KSStreamReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB06141C4422BF00379DA4 /* KSStreamReceiver.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE005C5E1C4E14BD00E4FFF5 /* KSEventStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSEventStorage.swift; sourceTree = "<group>"; };
+		BE005C601C4E3C2500E4FFF5 /* KSStreamProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSStreamProvider.swift; sourceTree = "<group>"; };
+		BE18E7841C4CBE9D00BB74C7 /* SyncFunc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyncFunc.swift; sourceTree = "<group>"; };
+		BE18E7861C4CE1CE00BB74C7 /* KSLiveProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSLiveProvider.swift; sourceTree = "<group>"; };
+		BE18E7881C4CF67A00BB74C7 /* KSEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSEventProvider.swift; sourceTree = "<group>"; };
+		BE18EF361C457D3600007106 /* KSLiveReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSLiveReceiver.swift; sourceTree = "<group>"; };
+		BE18EF381C457D4400007106 /* KSEventReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSEventReceiver.swift; sourceTree = "<group>"; };
 		BEEB05D01C43F3DB00379DA4 /* KSHLSPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSHLSPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB05D31C43F3DB00379DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEEB05D51C43F3DB00379DA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +66,11 @@
 		BEEB05EF1C43F3DC00379DA4 /* KSHLSPlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KSHLSPlayerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB05F31C43F3DC00379DA4 /* KSHLSPlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KSHLSPlayerUITests.swift; sourceTree = "<group>"; };
 		BEEB05F51C43F3DC00379DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BEEB06011C43F40700379DA4 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		BEEB06031C43F4D900379DA4 /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/iOS/Swifter.framework; sourceTree = "<group>"; };
+		BEEB060E1C43F6BB00379DA4 /* HLSPlaylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLSPlaylist.swift; sourceTree = "<group>"; };
+		BEEB06101C440F1300379DA4 /* TSSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSSegment.swift; sourceTree = "<group>"; };
+		BEEB06141C4422BF00379DA4 /* KSStreamReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSStreamReceiver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEEB06041C43F4D900379DA4 /* Swifter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,10 +99,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BE18E7831C4CBE6D00BB74C7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BE18E7841C4CBE9D00BB74C7 /* SyncFunc.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BEEB05C71C43F3DB00379DA4 = {
 			isa = PBXGroup;
 			children = (
+				BEEB06011C43F40700379DA4 /* Cartfile */,
 				BEEB05D21C43F3DB00379DA4 /* KSHLSPlayer */,
+				BEEB06061C43F56700379DA4 /* Frameworks */,
 				BEEB05E71C43F3DB00379DA4 /* KSHLSPlayerTests */,
 				BEEB05F21C43F3DC00379DA4 /* KSHLSPlayerUITests */,
 				BEEB05D11C43F3DB00379DA4 /* Products */,
@@ -97,6 +132,7 @@
 		BEEB05D21C43F3DB00379DA4 /* KSHLSPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				BEEB06071C43F69D00379DA4 /* KSHLSView */,
 				BEEB05D31C43F3DB00379DA4 /* AppDelegate.swift */,
 				BEEB05D51C43F3DB00379DA4 /* ViewController.swift */,
 				BEEB05D71C43F3DB00379DA4 /* Main.storyboard */,
@@ -125,6 +161,79 @@
 			path = KSHLSPlayerUITests;
 			sourceTree = "<group>";
 		};
+		BEEB06061C43F56700379DA4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BEEB06031C43F4D900379DA4 /* Swifter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BEEB06071C43F69D00379DA4 /* KSHLSView */ = {
+			isa = PBXGroup;
+			children = (
+				BEEB06081C43F69D00379DA4 /* Streaming */,
+			);
+			path = KSHLSView;
+			sourceTree = "<group>";
+		};
+		BEEB06081C43F69D00379DA4 /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				BEEB06091C43F69D00379DA4 /* Common */,
+				BEEB060A1C43F69D00379DA4 /* Provider */,
+				BEEB060B1C43F69D00379DA4 /* Receiver */,
+				BEEB060C1C43F69D00379DA4 /* Server */,
+				BEEB060D1C43F69D00379DA4 /* Storage */,
+				BE18E7831C4CBE6D00BB74C7 /* Utils */,
+			);
+			path = Streaming;
+			sourceTree = "<group>";
+		};
+		BEEB06091C43F69D00379DA4 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BEEB060E1C43F6BB00379DA4 /* HLSPlaylist.swift */,
+				BEEB06101C440F1300379DA4 /* TSSegment.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		BEEB060A1C43F69D00379DA4 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				BE18E7861C4CE1CE00BB74C7 /* KSLiveProvider.swift */,
+				BE18E7881C4CF67A00BB74C7 /* KSEventProvider.swift */,
+				BE005C601C4E3C2500E4FFF5 /* KSStreamProvider.swift */,
+			);
+			path = Provider;
+			sourceTree = "<group>";
+		};
+		BEEB060B1C43F69D00379DA4 /* Receiver */ = {
+			isa = PBXGroup;
+			children = (
+				BEEB06141C4422BF00379DA4 /* KSStreamReceiver.swift */,
+				BE18EF361C457D3600007106 /* KSLiveReceiver.swift */,
+				BE18EF381C457D4400007106 /* KSEventReceiver.swift */,
+			);
+			path = Receiver;
+			sourceTree = "<group>";
+		};
+		BEEB060C1C43F69D00379DA4 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		BEEB060D1C43F69D00379DA4 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				BE005C5E1C4E14BD00E4FFF5 /* KSEventStorage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +244,7 @@
 				BEEB05CC1C43F3DB00379DA4 /* Sources */,
 				BEEB05CD1C43F3DB00379DA4 /* Frameworks */,
 				BEEB05CE1C43F3DB00379DA4 /* Resources */,
+				BEEB06051C43F50900379DA4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -231,6 +341,7 @@
 			files = (
 				BEEB05DE1C43F3DB00379DA4 /* LaunchScreen.storyboard in Resources */,
 				BEEB05DB1C43F3DB00379DA4 /* Assets.xcassets in Resources */,
+				BEEB06021C43F40700379DA4 /* Cartfile in Resources */,
 				BEEB05D91C43F3DB00379DA4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,13 +362,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BEEB06051C43F50900379DA4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Swifter.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BEEB05CC1C43F3DB00379DA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE18EF371C457D3600007106 /* KSLiveReceiver.swift in Sources */,
+				BEEB06111C440F1300379DA4 /* TSSegment.swift in Sources */,
+				BE18E7851C4CBE9D00BB74C7 /* SyncFunc.swift in Sources */,
+				BE18E7871C4CE1CE00BB74C7 /* KSLiveProvider.swift in Sources */,
 				BEEB05D61C43F3DB00379DA4 /* ViewController.swift in Sources */,
+				BEEB06151C4422BF00379DA4 /* KSStreamReceiver.swift in Sources */,
+				BEEB060F1C43F6BB00379DA4 /* HLSPlaylist.swift in Sources */,
 				BEEB05D41C43F3DB00379DA4 /* AppDelegate.swift in Sources */,
+				BE005C5F1C4E14BD00E4FFF5 /* KSEventStorage.swift in Sources */,
+				BE18EF391C457D4400007106 /* KSEventReceiver.swift in Sources */,
+				BE005C611C4E3C2500E4FFF5 /* KSStreamProvider.swift in Sources */,
+				BE18E7891C4CF67A00BB74C7 /* KSEventProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +537,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = KSHLSPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.ks.KSHLSPlayer;
@@ -410,6 +552,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = KSHLSPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = co.ks.KSHLSPlayer;
@@ -484,6 +630,7 @@
 				BEEB05FA1C43F3DC00379DA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEEB05FB1C43F3DC00379DA4 /* Build configuration list for PBXNativeTarget "KSHLSPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -492,6 +639,7 @@
 				BEEB05FD1C43F3DC00379DA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BEEB05FE1C43F3DC00379DA4 /* Build configuration list for PBXNativeTarget "KSHLSPlayerUITests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +648,7 @@
 				BEEB06001C43F3DC00379DA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

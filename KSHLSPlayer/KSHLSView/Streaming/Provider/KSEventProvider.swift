@@ -185,11 +185,87 @@ public class KSEventProvider: KSStreamProvider {
     }
     
     private func updateOutputPlaylist() -> Bool {
-        return true
+        var didUpdate = false
+        synced(segmentFence, closure: { [unowned self] in
+            let (newTS, startIndex): (TSSegment?, Int?) = {
+                /* New segment is the next one of the last one in output list */
+                if let index = self.indexOfNextOutputSegment() {
+                    return (self.segments[index], index)
+                }
+                /* New segment is the first one in list */
+                else {
+                    let ts = self.segments.first
+                    return (ts, ts != nil ? 0 : nil)
+                }
+            }()
+            /* Can't prepare for new playlist */
+            if newTS == nil || self.segmentData[newTS!.filename()] == nil {
+                return
+            }
+            /* Add new segments to output list */
+            var newSegmentCount = 0
+            if let index = startIndex {
+                for i in index..<self.segments.count {
+                    let ts = self.segments[i]
+                    /* No data for next segment, stop adding to output playlist */
+                    if !self.isConsumed(ts) && !self.hasSegmentData(ts.filename()) {
+                        break
+                    }
+                    if !self.outputSegments.contains(ts) {
+                        self.outputSegments += [ts]
+                        newSegmentCount++
+                    }
+                }
+            }
+            /* Generate output playlist */
+            let output = HLSPlaylist(version: Config.HLSVersion, targetDuration: self.playlist.targetDuration, sequence: 0, segments: self.outputSegments)
+            output.type = HLSPlaylist.StreamType.EVENT
+            output.end = false
+            if self.playlist.isEnd() {
+                /* Check if playlist is sync */
+                if self.outputSegments.last?.filename() == self.playlist.segmentNames.last {
+                    self.ending = true
+                    output.end = true
+                }
+            }
+            self.outputPlaylist = output.generate(self.serviceUrl, end: output.end!)
+            
+            /* Save playlist to disk */
+            if !self.playlist.isEnd() && newSegmentCount > 0 {
+                self.storage.savePlaylist(self.playlist.generate(self.serviceUrl))
+            }
+            
+            didUpdate = newSegmentCount > 0
+        })
+        
+        return didUpdate
     }
     
     private func updateEndingList() {
-        
+        synced(segmentFence, closure: { [unowned self] in
+            /* Add new segments to output playlist */
+            if let startIndex = self.indexOfNextOutputSegment() ?? (self.segments.first != nil ? 0 : nil) {
+                /* Add new segments to output playlist */
+                for i in startIndex..<self.segments.count {
+                    let ts = self.segments[i]
+                    /* No data for next segment, stop adding to output playlist */
+                    if !self.isConsumed(ts) && !self.hasSegmentData(ts.filename()) {
+                        break
+                    }
+                    if !self.outputSegments.contains(ts) {
+                        self.outputSegments += [ts]
+                    }
+                }
+            }
+            /* Generate output playlist */
+            let output = HLSPlaylist(version: Config.HLSVersion, targetDuration: self.playlist.targetDuration, sequence: 0, segments: self.outputSegments)
+            output.type = HLSPlaylist.StreamType.EVENT
+            output.end = self.segments.count == 0 || self.outputSegments.last == self.segments.last
+            self.outputPlaylist = output.generate(self.serviceUrl, end: output.end!)
+            
+            /* Save playlist to disk */
+            self.storage.savePlaylist(self.playlist.generate(self.serviceUrl))
+        })
     }
     
     override public func providePlaylist() -> String {
@@ -211,13 +287,9 @@ public class KSEventProvider: KSStreamProvider {
                 synced(segmentFence, closure: { [unowned self] in
                     self.outputUnchangeTimes = 0
                     /* Drop some segments */
-                    if self.outputSegments.count > 0 {
-                        if let ts = self.outputSegments.last {
-                            if let index = self.segments.indexOf(ts) where ts != self.segments.last {
-                                let remove = self.segments.removeAtIndex(index + 1)
-                                self.segmentData[remove.filename()] = nil
-                            }
-                        }
+                    if let index = self.indexOfNextOutputSegment() {
+                        let ts = self.segments.removeAtIndex(index)
+                        self.segmentData[ts.filename()] = nil
                     }
                 })
             }
@@ -232,6 +304,10 @@ public class KSEventProvider: KSStreamProvider {
             }
         }
         return outputPlaylist ?? ""
+    }
+    
+    private func isConsumed(ts: TSSegment) -> Bool {
+        return consumedSegments.contains(ts.filename())
     }
 }
 

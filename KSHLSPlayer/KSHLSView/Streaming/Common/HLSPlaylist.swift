@@ -98,6 +98,10 @@ public class HLSPlaylist: NSObject {
         }
     }
     
+    func generate(baseUrl: String?) -> String {
+        return generate(baseUrl, end: isEnd())
+    }
+    
     func generate(baseUrl: String?, end: Bool) -> String {
         // head
         var string = Schema.Head + "\n"

@@ -59,16 +59,12 @@ public class KSStreamProvider {
                 Start from the next segment of last one in output playlist.
                 If not found, start from first.
              */
-            var index: Int?
-            if self.outputSegments.count > 0 {
-                index = self.segments.indexOf(self.outputSegments.last!)
-            }
-            let bufferIndex = index != nil ? index! + 1 : 0
+            let bufferIndex = self.indexOfNextOutputSegment() ?? 0
             for i in bufferIndex..<self.segments.count {
                 if self.segmentData[self.segments[i].filename()] == nil { break }
                 bufferCount++
             }
-            })
+        })
         return bufferCount
     }
     
@@ -84,5 +80,14 @@ public class KSStreamProvider {
      */
     public func provideSegment(filename: String) -> NSData? {
         return segmentData[filename]
+    }
+
+    internal func indexOfNextOutputSegment() -> Int? {
+        if let ts = outputSegments.last {
+            if let index = segments.indexOf(ts) where ts != segments.last {
+                return index + 1
+            }
+        }
+        return nil
     }
 }

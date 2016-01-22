@@ -40,15 +40,15 @@ public class KSLiveReceiver: KSStreamReciever {
     }
     
     override func playlistDidFail(response: NSHTTPURLResponse?, error: NSError?) {
-        delegate?.receiver?(self, playlistDidFailWithError: error, urlStatusCode: (response?.statusCode) ?? 0)
+        delegate?.receiver(self, playlistDidFailWithError: error, urlStatusCode: (response?.statusCode) ?? 0)
     }
     
     override func playlistDidNotChange() {
-        delegate?.receiver?(self, playlistDidNotChange: playlist)
+        delegate?.receiver(self, playlistDidNotChange: playlist)
     }
     
     override func playlistDidUpdate() {
-        delegate?.receiver?(self, didReceivePlaylist: playlist)
+        delegate?.receiver(self, didReceivePlaylist: playlist)
     }
     
     override func getSegments() {
@@ -73,7 +73,7 @@ public class KSLiveReceiver: KSStreamReciever {
                 if let task = self.segmentTasks[ts.url] {
                     task.cancel()
                     self.segmentTasks[ts.url] = nil
-                    self.delegate?.receiver?(self, didDropSegment: ts)
+                    self.delegate?.receiver(self, didDropSegment: ts)
                 }
             }
             
@@ -85,7 +85,7 @@ public class KSLiveReceiver: KSStreamReciever {
                     if let task = self.segmentTasks[ts.url] {
                         task.cancel()
                         self.segmentTasks[ts.url] = nil
-                        self.delegate?.receiver?(self, didDropSegment: ts)
+                        self.delegate?.receiver(self, didDropSegment: ts)
                     }
                 }
             }
@@ -142,22 +142,22 @@ public class KSLiveReceiver: KSStreamReciever {
         if response?.statusCode == 404 {
             tsFallBehind = true
         }
-        delegate?.receiver?(self, didDropSegment: ts)
+        delegate?.receiver(self, didDropSegment: ts)
         super.segmentDidFail(ts, response: response, error: error)
     }
     
     override func willDownloadSegment(ts: TSSegment) {
-        delegate?.receiver?(self, didPushSegment: ts)
+        delegate?.receiver(self, didPushSegment: ts)
     }
     
     override func didDownloadSegment(ts: TSSegment, data: NSData) {
-        delegate?.receiver?(self, didReceiveSegment: ts, data: data)
+        delegate?.receiver(self, didReceiveSegment: ts, data: data)
     }
 }
 
-@objc public protocol KSLiveReceiverDelegate: KSStreamReceiverDelegate {
+public protocol KSLiveReceiverDelegate: KSStreamReceiverDelegate {
     
-    optional func receiver(receiver: KSLiveReceiver, didPushSegment segment: TSSegment)
+    func receiver(receiver: KSLiveReceiver, didPushSegment segment: TSSegment)
     
-    optional func receiver(receiver: KSLiveReceiver, didDropSegment segment: TSSegment)
+    func receiver(receiver: KSLiveReceiver, didDropSegment segment: TSSegment)
 }

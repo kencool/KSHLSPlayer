@@ -9,7 +9,7 @@
 import Foundation
 import QuartzCore
 
-public class KSStreamReciever: NSObject {
+public class KSStreamReciever {
     
     struct Config {
         /**
@@ -218,15 +218,15 @@ public class KSStreamReciever: NSObject {
     }
 }
 
-@objc public protocol KSStreamReceiverDelegate {
+public protocol KSStreamReceiverDelegate: class {
     
-    optional func receiver(receiver: KSStreamReciever, didReceivePlaylist playlist: HLSPlaylist)
+    func receiver(receiver: KSStreamReciever, didReceivePlaylist playlist: HLSPlaylist)
     
-    optional func receiver(receiver: KSStreamReciever, playlistDidNotChange playlist: HLSPlaylist)
+    func receiver(receiver: KSStreamReciever, playlistDidNotChange playlist: HLSPlaylist)
     
-    optional func receiver(receiver: KSStreamReciever, playlistDidFailWithError error: NSError?, urlStatusCode code: Int)
+    func receiver(receiver: KSStreamReciever, playlistDidFailWithError error: NSError?, urlStatusCode code: Int)
     
-    optional func receiver(receiver: KSStreamReciever, didReceiveSegment segment: TSSegment, data: NSData)
+    func receiver(receiver: KSStreamReciever, didReceiveSegment segment: TSSegment, data: NSData)
     
-    optional func receiver(receiver: KSEventReceiver, segmentDidFail segment: TSSegment, withError error: NSError?)
+    func receiver(receiver: KSEventReceiver, segmentDidFail segment: TSSegment, withError error: NSError?)
 }

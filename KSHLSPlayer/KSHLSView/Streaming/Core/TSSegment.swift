@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class TSSegment: NSObject {
+public class TSSegment: Equatable {
     
     let url: String
     
@@ -20,13 +20,13 @@ public class TSSegment: NSObject {
         self.url = url
         self.duration = duration
         self.sequence = sequence
-        super.init()
     }
     
     func filename() -> String {
         return (url as NSString).lastPathComponent
     }
     
+    /*
     override public func isEqual(object: AnyObject?) -> Bool {
         if let obj = object as? TSSegment {
             //return self.url == obj.url && self.duration == obj.duration && self.sequence == obj.sequence
@@ -34,9 +34,9 @@ public class TSSegment: NSObject {
         } else {
             return false
         }
-    }
+    }*/
 }
 
-func == (lhs: TSSegment, rhs: TSSegment) -> Bool {
+public func ==(lhs: TSSegment, rhs: TSSegment) -> Bool {
     return lhs.url == rhs.url && lhs.duration == rhs.duration && lhs.sequence == rhs.sequence
 }

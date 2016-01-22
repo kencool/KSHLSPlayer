@@ -69,15 +69,15 @@ public class KSEventReceiver: KSStreamReciever {
     }
     
     override func playlistDidFail(response: NSHTTPURLResponse?, error: NSError?) {
-        delegate?.receiver?(self, playlistDidFailWithError: error, urlStatusCode: (response?.statusCode) ?? 0)
+        delegate?.receiver(self, playlistDidFailWithError: error, urlStatusCode: (response?.statusCode) ?? 0)
     }
     
     override func playlistDidNotChange() {
-        delegate?.receiver?(self, playlistDidNotChange: playlist)
+        delegate?.receiver(self, playlistDidNotChange: playlist)
     }
     
     override func playlistDidUpdate() {
-        delegate?.receiver?(self, didReceivePlaylist: playlist)
+        delegate?.receiver(self, didReceivePlaylist: playlist)
         
         var newSegments: [TSSegment] = []
         
@@ -98,13 +98,13 @@ public class KSEventReceiver: KSStreamReciever {
             }
         })
         
-        delegate?.receiver?(self, didPushSegments: newSegments)
+        delegate?.receiver(self, didPushSegments: newSegments)
     }
     
     override func prepareForPlaylist() -> Bool {
         /* Check if playlist is end */
         if playlist.isEnd() {
-            delegate?.receiver?(self, playlistDidEnd: playlist)
+            delegate?.receiver(self, playlistDidEnd: playlist)
         }
         /* Check if pending segments is full */
         if pendingSegments.count >= Config.pendingSegmentMax {
@@ -124,7 +124,7 @@ public class KSEventReceiver: KSStreamReciever {
                 if self.isSegmentConnectionFull() { break }
                 if self.tsDownloads.contains(ts.url) { continue }
                 
-                if self.delegate != nil && self.delegate!.receiver?(self, shouldDownloadSegment: ts) == false {
+                if self.delegate?.receiver(self, shouldDownloadSegment: ts) == false {
                     ignoreSegments += [ts]
                 } else {
                     self.downloadSegment(ts)
@@ -156,7 +156,7 @@ public class KSEventReceiver: KSStreamReciever {
                 self.pendingSegments.removeAtIndex(index)
             }
         })
-        delegate?.receiver?(self, didReceiveSegment: ts, data: data)
+        delegate?.receiver(self, didReceiveSegment: ts, data: data)
     }
     
     override func finishSegment(ts: TSSegment) {
@@ -166,11 +166,11 @@ public class KSEventReceiver: KSStreamReciever {
     }
 }
 
-@objc public protocol KSEventReceiverDelegate: KSStreamReceiverDelegate {
+public protocol KSEventReceiverDelegate: KSStreamReceiverDelegate {
     
-    optional func receiver(receiver: KSEventReceiver, playlistDidEnd playlist: HLSPlaylist)
+    func receiver(receiver: KSEventReceiver, playlistDidEnd playlist: HLSPlaylist)
     
-    optional func receiver(receiver: KSEventReceiver, didPushSegments segments: [TSSegment])
+    func receiver(receiver: KSEventReceiver, didPushSegments segments: [TSSegment])
     
-    optional func receiver(receiver: KSEventReceiver, shouldDownloadSegment segment: TSSegment) -> Bool
+    func receiver(receiver: KSEventReceiver, shouldDownloadSegment segment: TSSegment) -> Bool
 }

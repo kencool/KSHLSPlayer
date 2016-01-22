@@ -14,6 +14,10 @@
 		BE18E7891C4CF67A00BB74C7 /* KSEventProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18E7881C4CF67A00BB74C7 /* KSEventProvider.swift */; };
 		BE18EF371C457D3600007106 /* KSLiveReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18EF361C457D3600007106 /* KSLiveReceiver.swift */; };
 		BE18EF391C457D4400007106 /* KSEventReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE18EF381C457D4400007106 /* KSEventReceiver.swift */; };
+		BE1F2D541C52031A007A069A /* HLSPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1F2D521C52031A007A069A /* HLSPlaylist.swift */; };
+		BE1F2D551C52031A007A069A /* TSSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1F2D531C52031A007A069A /* TSSegment.swift */; };
+		BE1F2D571C520425007A069A /* KSError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE1F2D561C520425007A069A /* KSError.swift */; };
+		BE93B6041C512D3A0017CD66 /* KSStreamServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE93B6031C512D3A0017CD66 /* KSStreamServer.swift */; };
 		BEEB05D41C43F3DB00379DA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB05D31C43F3DB00379DA4 /* AppDelegate.swift */; };
 		BEEB05D61C43F3DB00379DA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB05D51C43F3DB00379DA4 /* ViewController.swift */; };
 		BEEB05D91C43F3DB00379DA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEEB05D71C43F3DB00379DA4 /* Main.storyboard */; };
@@ -23,8 +27,6 @@
 		BEEB05F41C43F3DC00379DA4 /* KSHLSPlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB05F31C43F3DC00379DA4 /* KSHLSPlayerUITests.swift */; };
 		BEEB06021C43F40700379DA4 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = BEEB06011C43F40700379DA4 /* Cartfile */; };
 		BEEB06041C43F4D900379DA4 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB06031C43F4D900379DA4 /* Swifter.framework */; };
-		BEEB060F1C43F6BB00379DA4 /* HLSPlaylist.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB060E1C43F6BB00379DA4 /* HLSPlaylist.swift */; };
-		BEEB06111C440F1300379DA4 /* TSSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB06101C440F1300379DA4 /* TSSegment.swift */; };
 		BEEB06151C4422BF00379DA4 /* KSStreamReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB06141C4422BF00379DA4 /* KSStreamReceiver.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,10 @@
 		BE18E7881C4CF67A00BB74C7 /* KSEventProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSEventProvider.swift; sourceTree = "<group>"; };
 		BE18EF361C457D3600007106 /* KSLiveReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSLiveReceiver.swift; sourceTree = "<group>"; };
 		BE18EF381C457D4400007106 /* KSEventReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSEventReceiver.swift; sourceTree = "<group>"; };
+		BE1F2D521C52031A007A069A /* HLSPlaylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLSPlaylist.swift; sourceTree = "<group>"; };
+		BE1F2D531C52031A007A069A /* TSSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSSegment.swift; sourceTree = "<group>"; };
+		BE1F2D561C520425007A069A /* KSError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSError.swift; sourceTree = "<group>"; };
+		BE93B6031C512D3A0017CD66 /* KSStreamServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSStreamServer.swift; sourceTree = "<group>"; };
 		BEEB05D01C43F3DB00379DA4 /* KSHLSPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KSHLSPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEEB05D31C43F3DB00379DA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEEB05D51C43F3DB00379DA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,8 +74,6 @@
 		BEEB05F51C43F3DC00379DA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEEB06011C43F40700379DA4 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BEEB06031C43F4D900379DA4 /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/iOS/Swifter.framework; sourceTree = "<group>"; };
-		BEEB060E1C43F6BB00379DA4 /* HLSPlaylist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HLSPlaylist.swift; sourceTree = "<group>"; };
-		BEEB06101C440F1300379DA4 /* TSSegment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSSegment.swift; sourceTree = "<group>"; };
 		BEEB06141C4422BF00379DA4 /* KSStreamReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSStreamReceiver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +109,15 @@
 				BE18E7841C4CBE9D00BB74C7 /* SyncFunc.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		BE1F2D511C52031A007A069A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				BE1F2D521C52031A007A069A /* HLSPlaylist.swift */,
+				BE1F2D531C52031A007A069A /* TSSegment.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		BEEB05C71C43F3DB00379DA4 = {
@@ -180,7 +193,7 @@
 		BEEB06081C43F69D00379DA4 /* Streaming */ = {
 			isa = PBXGroup;
 			children = (
-				BEEB06091C43F69D00379DA4 /* Common */,
+				BE1F2D511C52031A007A069A /* Core */,
 				BEEB060A1C43F69D00379DA4 /* Provider */,
 				BEEB060B1C43F69D00379DA4 /* Receiver */,
 				BEEB060C1C43F69D00379DA4 /* Server */,
@@ -188,15 +201,6 @@
 				BE18E7831C4CBE6D00BB74C7 /* Utils */,
 			);
 			path = Streaming;
-			sourceTree = "<group>";
-		};
-		BEEB06091C43F69D00379DA4 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				BEEB060E1C43F6BB00379DA4 /* HLSPlaylist.swift */,
-				BEEB06101C440F1300379DA4 /* TSSegment.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		BEEB060A1C43F69D00379DA4 /* Provider */ = {
@@ -222,6 +226,8 @@
 		BEEB060C1C43F69D00379DA4 /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				BE93B6031C512D3A0017CD66 /* KSStreamServer.swift */,
+				BE1F2D561C520425007A069A /* KSError.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -385,17 +391,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE18EF371C457D3600007106 /* KSLiveReceiver.swift in Sources */,
-				BEEB06111C440F1300379DA4 /* TSSegment.swift in Sources */,
+				BE1F2D541C52031A007A069A /* HLSPlaylist.swift in Sources */,
 				BE18E7851C4CBE9D00BB74C7 /* SyncFunc.swift in Sources */,
 				BE18E7871C4CE1CE00BB74C7 /* KSLiveProvider.swift in Sources */,
 				BEEB05D61C43F3DB00379DA4 /* ViewController.swift in Sources */,
 				BEEB06151C4422BF00379DA4 /* KSStreamReceiver.swift in Sources */,
-				BEEB060F1C43F6BB00379DA4 /* HLSPlaylist.swift in Sources */,
+				BE1F2D571C520425007A069A /* KSError.swift in Sources */,
+				BE1F2D551C52031A007A069A /* TSSegment.swift in Sources */,
 				BEEB05D41C43F3DB00379DA4 /* AppDelegate.swift in Sources */,
 				BE005C5F1C4E14BD00E4FFF5 /* KSEventStorage.swift in Sources */,
 				BE18EF391C457D4400007106 /* KSEventReceiver.swift in Sources */,
 				BE005C611C4E3C2500E4FFF5 /* KSStreamProvider.swift in Sources */,
 				BE18E7891C4CF67A00BB74C7 /* KSEventProvider.swift in Sources */,
+				BE93B6041C512D3A0017CD66 /* KSStreamServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

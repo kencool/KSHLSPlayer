@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class HLSPlaylist: NSObject {
+public class HLSPlaylist {
     
     struct Schema {
         static let Head = "#EXTM3U"
@@ -42,7 +42,6 @@ public class HLSPlaylist: NSObject {
     private(set) public var discontinuity: Bool = false
     
     init(version: String?, targetDuration: Double?, sequence: Int?, segments: [TSSegment]) {
-        super.init()
         self.version = version
         self.targetDuration = targetDuration
         self.sequence = sequence
@@ -53,7 +52,6 @@ public class HLSPlaylist: NSObject {
     }
     
     init(data: NSData) {
-        super.init()
         if let text = NSString(data: data, encoding: NSUTF8StringEncoding) as? String {
             parseText(text)
         }

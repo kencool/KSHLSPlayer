@@ -182,11 +182,9 @@ public class KSLiveProvider: KSStreamProvider {
                 }
                 /* If we have new segments, change playlist. */
                 if i == self.outputSegments.count - 1 {
-                    if let index = self.segments.indexOf(ts) {
-                        if self.segments.count > index + 1 {
-                            let nextNewSegment = self.segments[index + 1]
-                            changed = self.segmentData[nextNewSegment.filename()] != nil
-                        }
+                    if let index = self.segments.indexOf(ts) where self.segments.count > index + 1 {
+                        let nextNewSegment = self.segments[index + 1]
+                        changed = self.segmentData[nextNewSegment.filename()] != nil
                     }
                 }
             }

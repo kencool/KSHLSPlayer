@@ -83,10 +83,8 @@ public class KSStreamProvider {
     }
 
     internal func indexOfNextOutputSegment() -> Int? {
-        if let ts = outputSegments.last {
-            if let index = segments.indexOf(ts) where ts != segments.last {
-                return index + 1
-            }
+        if let ts = outputSegments.last where ts != segments.last, let index = segments.indexOf(ts) {
+            return index + 1
         }
         return nil
     }

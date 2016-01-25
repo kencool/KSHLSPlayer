@@ -155,7 +155,7 @@ public class KSLiveReceiver: KSStreamReciever {
     }
 }
 
-public protocol KSLiveReceiverDelegate: KSStreamReceiverDelegate {
+protocol KSLiveReceiverDelegate: KSStreamReceiverDelegate {
     
     func receiver(receiver: KSLiveReceiver, didPushSegment segment: TSSegment)
     

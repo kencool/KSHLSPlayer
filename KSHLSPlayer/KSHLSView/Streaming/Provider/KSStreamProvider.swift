@@ -26,6 +26,8 @@ public class KSStreamProvider {
      */
     let serviceUrl: String
     
+    internal var outputPlaylist: String?
+    
     /**
         TS segment input list.
         Segments in this list will be added to output if it's filled or not if it's dropped.
@@ -68,11 +70,15 @@ public class KSStreamProvider {
         return bufferCount
     }
     
+    public func cachedSegmentSize() -> Int {
+        return segmentData.count
+    }
+    
     /**
         Provide latest output playlist.
      */
-    public func providePlaylist() -> String {
-        return ""
+    public func providePlaylist() -> String? {
+        return outputPlaylist
     }
     
     /**

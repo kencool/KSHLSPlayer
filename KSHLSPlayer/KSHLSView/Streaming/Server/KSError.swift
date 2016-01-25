@@ -15,7 +15,7 @@ public struct KSError {
     public enum Code: Int {
         case PlaylistUnchanged      = -1
         case PlaylistUnavailable    = -2
-        case playlistNotFound       = -3
+        case PlaylistNotFound       = -3
         case PlaylistIsEmpty        = -4
         case AuthenticationFailed   = -5
         case InvaildUrl             = -6

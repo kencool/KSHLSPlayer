@@ -166,7 +166,7 @@ public class KSEventReceiver: KSStreamReciever {
     }
 }
 
-public protocol KSEventReceiverDelegate: KSStreamReceiverDelegate {
+protocol KSEventReceiverDelegate: KSStreamReceiverDelegate {
     
     func receiver(receiver: KSEventReceiver, playlistDidEnd playlist: HLSPlaylist)
     

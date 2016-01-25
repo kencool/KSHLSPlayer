@@ -28,6 +28,8 @@
 		BEEB06021C43F40700379DA4 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = BEEB06011C43F40700379DA4 /* Cartfile */; };
 		BEEB06041C43F4D900379DA4 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEB06031C43F4D900379DA4 /* Swifter.framework */; };
 		BEEB06151C4422BF00379DA4 /* KSStreamReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEEB06141C4422BF00379DA4 /* KSStreamReceiver.swift */; };
+		BEFA3A321C5384B700AEFF48 /* KSLiveServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFA3A311C5384B700AEFF48 /* KSLiveServer.swift */; };
+		BEFA3A341C5384C200AEFF48 /* KSEventServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEFA3A331C5384C200AEFF48 /* KSEventServer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +77,8 @@
 		BEEB06011C43F40700379DA4 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		BEEB06031C43F4D900379DA4 /* Swifter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swifter.framework; path = Carthage/Build/iOS/Swifter.framework; sourceTree = "<group>"; };
 		BEEB06141C4422BF00379DA4 /* KSStreamReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSStreamReceiver.swift; sourceTree = "<group>"; };
+		BEFA3A311C5384B700AEFF48 /* KSLiveServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSLiveServer.swift; sourceTree = "<group>"; };
+		BEFA3A331C5384C200AEFF48 /* KSEventServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KSEventServer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +232,8 @@
 			children = (
 				BE93B6031C512D3A0017CD66 /* KSStreamServer.swift */,
 				BE1F2D561C520425007A069A /* KSError.swift */,
+				BEFA3A311C5384B700AEFF48 /* KSLiveServer.swift */,
+				BEFA3A331C5384C200AEFF48 /* KSEventServer.swift */,
 			);
 			path = Server;
 			sourceTree = "<group>";
@@ -395,10 +401,12 @@
 				BE18E7851C4CBE9D00BB74C7 /* SyncFunc.swift in Sources */,
 				BE18E7871C4CE1CE00BB74C7 /* KSLiveProvider.swift in Sources */,
 				BEEB05D61C43F3DB00379DA4 /* ViewController.swift in Sources */,
+				BEFA3A341C5384C200AEFF48 /* KSEventServer.swift in Sources */,
 				BEEB06151C4422BF00379DA4 /* KSStreamReceiver.swift in Sources */,
 				BE1F2D571C520425007A069A /* KSError.swift in Sources */,
 				BE1F2D551C52031A007A069A /* TSSegment.swift in Sources */,
 				BEEB05D41C43F3DB00379DA4 /* AppDelegate.swift in Sources */,
+				BEFA3A321C5384B700AEFF48 /* KSLiveServer.swift in Sources */,
 				BE005C5F1C4E14BD00E4FFF5 /* KSEventStorage.swift in Sources */,
 				BE18EF391C457D4400007106 /* KSEventReceiver.swift in Sources */,
 				BE005C611C4E3C2500E4FFF5 /* KSStreamProvider.swift in Sources */,

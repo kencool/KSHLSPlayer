@@ -39,9 +39,7 @@ public class KSEventProvider: KSStreamProvider {
     var autoManageCache = false
     
     private var consumedSegments: Set<String> = Set()
-    
-    private var outputPlaylist: String?
-    
+        
     private var outputUnchangeTimes = 0
     
     /**
@@ -93,6 +91,14 @@ public class KSEventProvider: KSStreamProvider {
             self.outputSegments.removeAll()
         })
         outputPlaylist = nil
+    }
+    
+    public func setTargetDuration(duration: Double) {
+        playlist.targetDuration = duration
+    }
+    
+    public func targetDuration() -> Double? {
+        return playlist.targetDuration
     }
     
     /**
@@ -268,7 +274,7 @@ public class KSEventProvider: KSStreamProvider {
         })
     }
     
-    override public func providePlaylist() -> String {
+    override public func providePlaylist() -> String? {
         /* If we don't have enough segments, start buffering */
         if outputSegments.count < Config.tsPrebufferSize && !ending {
             buffering = true
@@ -303,7 +309,7 @@ public class KSEventProvider: KSStreamProvider {
                 }
             }
         }
-        return outputPlaylist ?? ""
+        return outputPlaylist
     }
     
     private func isConsumed(ts: TSSegment) -> Bool {

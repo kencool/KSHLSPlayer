@@ -28,8 +28,10 @@ public class KSStreamServer {
             Playlist filename.
          */
         static let playlistFilename = "stream.m3u8"
+        
+        static let defaultPort: UInt16 = 9999
     }
-    
+        
     weak var delegate: KSStreamServerDelegate?
     
     /**
@@ -65,12 +67,19 @@ public class KSStreamServer {
     }
     
     // override
-    public func startService() {
-        
+    public func startService() -> Bool {
+        if streaming { return false }
+        streaming = true
+        serviceReadyNotified = false
+        playlistFailureTimes = 0
+        playlistUnchangeTimes = 0
+        return true
     }
     // override
     public func stopService() {
-        
+        streaming = false
+        stopIdleTimer()
+        httpServer?.stop()
     }
     // override
     public func outputPlaylist() -> String? {
@@ -106,7 +115,7 @@ public class KSStreamServer {
                     return .BadRequest
                 }
             }
-            try server.start(0)
+            try server.start(Config.defaultPort)
         }
     }
     
@@ -125,14 +134,26 @@ public class KSStreamServer {
         
         if let urlStr = playlistUrl(), url = NSURL(string: urlStr) where delegate != nil  {
             serviceReadyNotified = true
-            dispatch_async(dispatch_get_main_queue(), { [weak self] in
-                self?.delegate?.streamServer(self!, streamDidReady: url)
+            executeDelegateFunc({ _self in
+                _self.delegate?.streamServer(_self, streamDidReady: url)
             })
         }
     }
     
     private func clientDidIdle() {
-        delegate?.streamServer(clientIdle: self)
+        executeDelegateFunc({ _self in
+            _self.delegate?.streamServer(clientIdle: _self)
+        })
+    }
+    
+    internal func executeDelegateFunc(block: (_self: KSStreamServer) -> ()) {
+        if delegate != nil {
+            dispatch_async(dispatch_get_main_queue(), { [weak self] in
+                if let weakSelf = self {
+                    block(_self: weakSelf)
+                }
+            })
+        }
     }
 }
 
@@ -141,6 +162,8 @@ public protocol KSStreamServerDelegate: class {
     func streamServer(server: KSStreamServer, streamDidReady url: NSURL)
     
     func streamServer(server: KSStreamServer, streamDidFail error: KSError)
+    
+    func streamServer(server: KSStreamServer, playlistDidEnd playlist: HLSPlaylist)
     
     func streamServer(clientIdle server: KSStreamServer)
 }

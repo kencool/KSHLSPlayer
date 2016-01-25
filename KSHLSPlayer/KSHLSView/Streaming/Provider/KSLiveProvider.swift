@@ -45,9 +45,6 @@ public class KSLiveProvider: KSStreamProvider {
      */
     var targetDuration: Double?
     
-    private var outputPlaylist: String?
-    
-    
     /**
         Sequence number in output playlist. Starts from 0.
      */
@@ -148,7 +145,7 @@ public class KSLiveProvider: KSStreamProvider {
     /**
         Provide latest output playlist.
      */
-    override public func providePlaylist() -> String {
+    override public func providePlaylist() -> String? {
         /* If we don't have enough segments, start buffering. */
         if outputSegments.count < Config.tsPrebufferSize {
             buffering = true
@@ -166,7 +163,7 @@ public class KSLiveProvider: KSStreamProvider {
                 buffering = true
             }
         }
-        return outputPlaylist ?? ""
+        return outputPlaylist
     }
     
     private func updateOutputPlaylist() -> Bool {
